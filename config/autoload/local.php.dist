@@ -1,0 +1,42 @@
+    <?php
+    return array(   
+        // Db paráms    
+        'db' => array(
+            //this is for primary adapter....
+            'username' => 'root',
+            'password' => '',
+            'driver' => 'Pdo',
+            'dsn' => 'mysql:dbname=dev_mnemonic;host=localhost',
+            'profiler' => true,
+            'driver_options' => array(
+                PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''
+            ),
+            'adapters' => array(
+                'db1' => array(
+                    'username' => 'root',
+                    'password' => '',
+                ),
+                'db2' => array(
+                    'username' => 'other_user',
+                    'password' => 'other_user_passwd',
+                ),
+            ),
+        ),
+
+        //Servers
+        'servers' => array(
+            'static' => array(
+                'host' => 'http://dev.mnemonic250.com/',
+                'version' => '?v1.1'
+            ),
+            'element' => array(
+                'host' => 'http://dev.mnemonic250.com/',                
+            ),
+            'content' => array(
+                'host' => 'http://dev.mnemonic250.com/',                
+            ),            
+        ), 
+        'view_manager' => array(
+            'base_path' => "http://dev.mnemonic250.com/",
+        ),
+    );

@@ -1,0 +1,267 @@
+@charset "UTF-8";
+/* BiiA Lab main stylesheet */
+/*
+Project:                Budocu 
+Created by:             David García           
+Creation date:          22/09/2015
+Last modification:      22/09/2015
+Last modification by:   David García
+--------------------------------- */
+
+/* group hack */
+.group:before, .group:after { content: ""; display: table;} 
+.group:after { clear: both;}
+.group { zoom: 1; /* For IE 6/7 (trigger hasLayout) */}
+/* End group Hack */
+
+
+.wp-general{
+	background-image:url('../img/bg-top.jpg');
+	background-repeat:repeat-x;
+	font-family: 'Roboto', sans-serif;
+	font-size:16px;
+	padding-top:40px;
+}
+
+	.wp-general .center-ct{
+		margin:0 auto 70px;
+		width:940px;
+	}
+	
+	/** HEADER **/
+	.wp-general .header-ct{
+		margin-bottom:100px;
+	}
+	
+	/** CONTENT **/
+	.wp-general .wp-ct h1{
+		color:#3f4447;
+		font-size:1.5em;
+		font-weight:300;
+		margin-bottom:20px;
+		text-align:center;
+	}
+		.wp-general .wp-ct h1 strong{
+			font-weight:500;
+			text-transform:uppercase;
+		}
+		.wp-general .wp-ct h1 span{
+			color:#5c98be;
+			font-weight:500;
+		}
+		
+	.wp-general .wp-ct h2{
+		color:#479cb4;
+		font-size:1.5em;
+		margin-bottom:35px;
+		text-transform:uppercase;
+	}
+	.wp-general .wp-ct p{
+		color:#535759;
+		font-size:1.188em;
+		font-weight:300;
+		line-height:normal;
+	}
+
+	.wp-general .wp-ct .input-ct{
+		margin:0 auto;
+		position:relative;
+		width:66%;
+	}
+	.wp-general .wp-ct .input-ct input[type=text] {
+		border:1px solid #5c98be;
+		color:#535759;
+		font-size:1.188em;
+		font-weight:300;
+		height:50px;
+		padding:0 15px;
+		width:96%;
+	}
+	.wp-general .wp-ct .input-ct input[type=button]{
+		background-image:url('../img/bg-search.jpg');
+		border:none;
+		cursor:pointer;
+		height:37px;
+		right:0;
+		position:absolute;
+		top:7px;
+		width:38px;
+	}
+	.wp-general .wp-ct .big-btn{
+		display:inline-block;
+		font-size:1.5em;
+		font-weight:400;
+		padding:16px 48px 19px;
+		text-transform:uppercase;
+		-webkit-transition: all 1s;
+		-moz-transition: all 0.5s;
+		-o-transition: all 0.5s;
+		-ms-transition: all 0.5s;
+		transition: all 0.5s;
+	}
+	.wp-general .wp-ct .yellow-btn{
+		background-color:#ebb332;
+		color:#fff;
+	}
+	.wp-general .wp-ct .yellow-btn:hover{
+		background-color:#cd9617;
+		color:#fff;
+		text-decoration:none;
+	}
+	.wp-general .wp-ct .blue-btn{
+		background-color:#5c98be;
+	}
+	.wp-general .wp-ct .blue-btn:hover{
+		background-color:#487c9d;
+	}
+	.wp-general .top-ct{
+		margin-bottom:70px;
+	}
+	.wp-general .bottom-ct{
+		margin-bottom:100px;
+	}
+	.wp-general .one-col{
+		margin:0 auto;
+		width:100%;
+	}
+		.wp-general .one-col.small-ct{
+			text-align:center;
+			width:42%;
+		}
+	.wp-general .two-col{
+		float:left;
+		margin:0 6% 0 0;
+		width:47%;
+	}
+		.wp-general .two-col.last-item{
+			margin:0;
+		}
+	.wp-general .three-col{
+		float:left;
+		width:30%;
+	}
+		.wp-general .three-col.middle-item{
+			margin:0 5%;
+		}
+	
+	.wp-general .ct-btn{
+		text-align:center;
+	}
+	.wp-general .form-registro{
+		margin:20px 0;
+	}
+		.wp-general .form-registro input[type=text]{
+			border: 1px solid #5c98be;
+			color: #535759;
+			display:block;
+			font-size: 1em;
+			font-weight: 300;
+			height: 40px;
+			margin:0 auto 15px;
+			padding: 0 15px;
+			width:92%;
+		}
+		.wp-general .form-registro select{
+			border: 1px solid #5c98be;
+			color: #535759;
+			display:block;
+			font-size: 1em;
+			font-weight: 300;
+			height: 40px;
+			margin:0 auto 15px;
+			padding: 0 15px;
+			width:100%;
+		}
+		.wp-general .form-registro option{
+			color: #535759;
+		}
+		.wp-general .form-datos label{}
+			.wp-general .form-datos label input[type=checkbox]{
+				display:inline-block;
+				margin-right:14px;
+			}
+			.wp-general .form-datos label p{
+				display:inline-block;
+				font-size:1em;
+			}
+				.wp-general .form-datos label p a{
+					color:#479cb4;
+					font-weight:bolder;
+					text-decoration:underline;
+				}
+
+		.wp-general .form-registro input[type=button]{
+			border:none;
+			color:#fff;
+			cursor:pointer;
+			display:block;
+			font-size:1.1em;
+			width:100%;
+		}
+	.wp-general .list-img{
+		display:block;
+		margin:0 auto 20px;
+		text-align:center;
+	}
+	
+	/** MODAL CONTENT **/
+	.pop-up-ct{
+		padding:50px;
+	}
+	.pop-up-ct p{
+		color:#535759;
+		font-family: 'Roboto', sans-serif;
+		font-size:1em;
+		font-weight:300;
+		line-height:normal;
+		margin:0 0 20px;
+	}
+	.pop-up-ct.confirmacion-envio p{
+		text-align:center;
+	}
+	
+	.pop-up-ct .list-img{
+		display:block;
+		margin:0 auto 20px;
+		text-align:center;
+	}
+	
+	/** MAPA GOOGLE **/
+	.wp-general .mapa-home{
+		display:block;
+		height:400px;
+		width:100%;
+	}
+	
+	.wp-general .inside-map{
+		display:block;
+		height:250px;
+		width:100%;
+	}
+	
+	
+	/** FOOTER **/
+	.wp-general .footer-ct{
+		border-top:3px solid #68767d;
+		padding:27px 0 0;
+		text-align:right;
+	}
+		.wp-general .footer-ct .footer-links{}
+			.wp-general .footer-ct .footer-links li{
+				border-left:1px solid #68767d;
+				display:inline-block;
+				margin-left:14px;
+				padding:7px 0 7px 14px;
+			}
+			.wp-general .footer-ct .footer-links li:first-child{
+				border-left:none;
+				margin-left:0;
+				padding-left:0;
+			}
+			.wp-general .footer-ct .footer-links li a{
+				color:#68767d;
+				font-size:0.875em;
+				font-weight:normal;
+				text-decoration:none;
+				text-transform:uppercase;
+			}

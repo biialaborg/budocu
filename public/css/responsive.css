@@ -1,0 +1,198 @@
+@charset "UTF-8";
+/* BiiA Lab responsive stylesheet */
+/*
+Project:                Budocu 
+Created by:             David García           
+Creation date:          22/09/2015
+Last modification:      22/09/2015
+Last modification by:   David García
+--------------------------------- */
+
+
+@media screen and (max-width: 979px) {
+	.wp-general{
+		font-size:16px;
+	}
+
+	.wp-general .center-ct{
+		width:95%;
+	}
+	
+	/** HEADER **/
+	.wp-general .header-ct{
+		margin-bottom:100px;
+	}
+	
+	/** CONTENT **/
+	.wp-general .top-ct{
+		margin-bottom:116px;
+	}
+		.wp-general .top-ct h1{
+			font-size:1.5em;
+			margin-bottom:20px;
+			text-align:center;
+		}
+		.wp-general .top-ct h1 strong{}
+		.wp-general .top-ct h1 span{
+			color:#5c98be;
+			font-weight:500;
+		}
+		.wp-general .input-ct{
+			margin:0 auto;
+			width:630px;
+		}
+			.wp-general .input-ct input[type=text] {
+				font-size:1.188em;
+				height:50px;
+				padding:0 15px;
+				width:96%;
+			}
+			.wp-general .input-ct input[type=button]{
+				height:37px;
+				right:0;
+				top:7px;
+				width:38px;
+			}
+
+	.wp-general .bottom-ct{
+		margin-bottom:100px;
+	}
+		.wp-general .bottom-ct .left-col{
+			float:left;
+			margin-right:5%;
+			width:47%;
+		}
+			.wp-general .bottom-ct .left-col h2{
+				font-size:1.5em;
+				margin-bottom:15px;
+			}
+			.wp-general .bottom-ct .left-col p{
+				font-size:1.188em;
+			}
+		.wp-general .bottom-ct .right-col{
+			float:left;
+			width:45%;
+		}
+
+	.wp-general .yellow-btn{
+		font-size:1.5em;
+		padding:16px 48px 19px;
+	}
+}
+
+@media screen and (max-width: 768px) {}
+@media screen and (max-width: 680px) {
+	
+	.wp-general{
+		font-size:14px;
+	}
+	
+	/** HEADER **/
+	.wp-general .header-ct{
+		margin-bottom:15%;
+		text-align:center;
+	}
+	
+	/** CONTENT **/
+	.wp-general .top-ct{
+		margin-bottom:10%;
+	}
+		.wp-general .top-ct h1{
+			font-size:1.5em;
+			margin-bottom:20px;
+			text-align:center;
+		}
+		.wp-general .top-ct h1 strong{}
+		.wp-general .top-ct h1 span{
+			color:#5c98be;
+			font-weight:500;
+		}
+		.wp-general .input-ct{
+			margin:0 auto;
+			width:100%;
+		}
+			.wp-general .input-ct input[type=text] {
+				font-size:1.188em;
+				height:50px;
+				padding:0 15px;
+				width:90%;
+			}
+			.wp-general .input-ct input[type=button]{
+				height:37px;
+				right:6%;
+				top:7px;
+				width:38px;
+			}
+
+	.wp-general .bottom-ct{
+		margin-bottom:100px;
+	}
+		.wp-general .bottom-ct .left-col{
+			float:none;
+			margin-right:0;
+			margin-bottom:5%;
+			text-align:center;
+			width:100%;
+		}
+			.wp-general .bottom-ct .left-col h2{
+				font-size:1.5em;
+				margin-bottom:15px;
+			}
+			.wp-general .bottom-ct .left-col p{
+				font-size:1.188em;
+			}
+		.wp-general .bottom-ct .right-col{
+			float:none;
+			text-align:center;
+			width:100%;
+		}
+		
+		.wp-general .yellow-btn{
+			display:block;
+			font-size:1.5em;
+			padding:16px 0;
+			text-align:center;
+		}
+	
+	/** FOOTER **/
+	.wp-general .footer-ct{
+		padding:27px 0 0;
+		text-align:center;
+	}
+}
+@media screen and (max-width: 568px) {
+	.wp-general .input-ct input[type="button"] {
+		right: 6%;
+	}
+}
+@media screen and (max-width: 480px) {
+	
+	.wp-general .top-ct h1 {
+		font-size: 1.4em;
+	}
+	
+	.wp-general .bottom-ct .left-col h2 {
+		font-size: 1.3em;
+	}
+	
+	.wp-general .input-ct input[type="button"] {
+		right: 5%;
+	}
+	
+	.wp-general .bottom-ct .left-col p {
+		font-size: 1em;
+	}
+	
+	.wp-general .yellow-btn {
+    	font-size: 1.2em;
+	}
+	.wp-general .bottom-ct {
+		margin-bottom: 40px;
+	}
+	
+	.wp-general .footer-ct .footer-links li{
+		border:none;
+		display:block;
+		margin:0 0 10px;
+		padding:0;
+	}

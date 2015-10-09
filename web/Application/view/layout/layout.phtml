@@ -1,0 +1,12 @@
+<?php echo $this->doctype(); ?>
+<html lang="es">
+    <?php echo $this->render('layout/head'); ?>
+    <body>
+        <div class="wp-general">
+        <?php echo $this->render('layout/header'); ?>
+          <?php echo $this->content; ?>
+        <?php echo $this->render('layout/footer'); ?>
+        <?php echo $this->inlineScript() ?>
+        </div>
+    </body>
+</html>

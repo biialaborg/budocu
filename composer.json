@@ -1,0 +1,10 @@
+{
+    "name": "bongous/bongo_listener",
+    "description": "bongo_listener",
+    "license": "Proprietary",
+    "homepage": "http://bongous.com/",
+    "require": {
+        "php": ">=5.3.3",
+        "zendframework/zendframework": "~2.3.3"        
+    }    
+}
