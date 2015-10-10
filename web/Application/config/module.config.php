@@ -23,7 +23,7 @@ return array(
             'reportar-documento' => array(
                 'type'    => 'Literal',
                 'options' => array(
-                    'route'    => '/reportar-documento',
+                    'route' => '/reportar-documento',
                     'defaults' => array(
                         'controller' => 'Application\Controller\Index',
                         'action'        => 'reportar-documento',
@@ -31,16 +31,18 @@ return array(
                 ),
             ),
             'documento-reportado' => array(
-                'type'    => 'Literal',
+                'type'    => 'Segment',
                 'options' => array(
-                    'route'    => '/documento-reportado',
+                    'route'    => '/documento-reportado[/:documento]',
+                    'constraints' => array(
+                        'documento' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                    ),
                     'defaults' => array(
                         'controller' => 'Application\Controller\Index',
                         'action'        => 'documento-reportado',
                     ),
                 ),
             ),
-            
             'documento-no-reportado' => array(
                 'type'    => 'Literal',
                 'options' => array(

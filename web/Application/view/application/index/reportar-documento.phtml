@@ -4,19 +4,18 @@
 
 			<div class="two-col">
 				<h2>Regálanos tus datos</h2>
-				<form class="form-datos form-registro">
+				<form class="form-datos form-registro" id="formregidtro" method="post">
 					<select>
 						<optgroup>
 							<option>Tipo de documento</option>
-							<option>Cédula de ciudadanía</option>
-							<option>Tarjeta de identidad</option>
-							<option>Pasaporte</option>
-							<option>Tarjeta de residencia</option>
+							<?php foreach ($this->tiposDocuemntos as $documento): ?>
+								<option value="<?php echo $documento['tipd_id'] ?>"><?php echo $documento['tipd_nombre'] ?></option>
+							<?php endforeach;?>
 						</optgroup>
 					</select> <input type="text" placeholder="Número de documento" /> <input
 						type="text" placeholder="Email" /> <input type="text"
 						placeholder="Móvil" /> <label> <input type="checkbox">
-					<p>
+						<p>
 							Acepto los <a href="#terminos-condiciones"
 								class="inline cboxElement">términos y condiciones</a>
 						</p>
@@ -35,10 +34,67 @@
 		</div>
 
 		<div class="ct-btn wp-ct">
-			<a class="big-btn"
-				href="/documento-reportado">Quiero regresar un documento</a>
+			<a class="big-btn yellow-btn inline cboxElement"
+				href="#confirmacion-envio" onclick="guardarDocumento()">Quiero regresar un documento</a>
 		</div>
 
 	</div>
 
 </section>
+
+<!-- Modal content -->
+<div style='display: none' class="pop-up-wp">
+
+	<!-- Confirmación envio -->
+	<div class="pop-up-ct terminos-condiciones" id='terminos-condiciones'>
+		<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+			eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+			ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+			aliquip ex ea commodo consequat. Duis aute irure dolor in
+			reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+			pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+			culpa qui officia deserunt mollit anim id est laborum."</p>
+
+		<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+			eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+			ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+			aliquip ex ea commodo consequat. Duis aute irure dolor in
+			reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+			pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+			culpa qui officia deserunt mollit anim id est laborum."</p>
+	</div>
+	<!--Modificar usuario-->
+
+	<!-- Confirmación envio -->
+	<div class="pop-up-ct confirmacion-envio" id='confirmacion-envio'>
+		<p>
+			<img class="list-img" src="img/regalanos-tu-testimonio.png"
+				title="Gracias, la persona estará muy agradecida"
+				alt="Gracias, la persona estará muy agradecida" /> Gracias.
+		</p>
+		<p>Estamos seguros que la persona que encuentre su documento te
+			agradecerá infinitamente, además se te recompensará con $30.000 pesos
+			colombianos.</p>
+	</div>
+	<!--Modificar usuario-->
+
+</div>
+<!-- End Modal content -->
+<script>
+function guardarDocumento() 
+{
+    $.ajax({
+    	  url: "/application/index/guardar-documento",
+    	  data : $('#formregidtro').serialize(),
+    	  type : 'POST',
+    	  beforeSend: function( xhr ) {
+    	    xhr.overrideMimeType( "text/plain; charset=x-user-defined" );
+    	  }
+    	}).done(function( data ) 
+    	{
+            if ( console && console.log ) {
+              console.log( "Sample of data:", data.slice( 0, 100 ) );
+            }
+      });
+}
+</script>

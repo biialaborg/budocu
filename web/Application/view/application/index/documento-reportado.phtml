@@ -2,13 +2,13 @@
 	<div class="center-ct">
 		<div class="ct-btn wp-ct top-ct">
 			<h1>
-				Felicidades, han reportado tu <strong>XXXTIPODOCUMENTOXXX</strong>
+				Felicidades, han reportado tu <strong><?php echo $this->data['tipd_nombre'] .':'.$this->data['doc_numero']?></strong>
 			</h1>
 		</div>
 
 		<div class="wp-ct group top-ct">
 			<div class="three-col">
-				<img class="list-img" src="img/ciudadano-reporto-tu-documento.png"
+				<img class="list-img" src="<?php echo $this->Server('static') ?>img/ciudadano-reporto-tu-documento.png"
 					title="Un ciudadano reportó tu documento"
 					alt="Un ciudadano reportó tu documento" />
 				<p>Un ciudadano honesto reportó tu documento, y tenemos que
@@ -17,7 +17,7 @@
 
 			<div class="three-col middle-item">
 				<img class="list-img"
-					src="img/notificacion-servicio-de-mensajeria.png"
+					src="<?php echo $this->Server('static') ?>img/notificacion-servicio-de-mensajeria.png"
 					title="El servicio de mensajería será reportado"
 					alt="El servicio de mensajería será reportado" />
 				<p>Luego del pago, se notifica inmediatamente al servicio de
@@ -25,7 +25,7 @@
 			</div>
 
 			<div class="three-col">
-				<img class="list-img" src="img/regalanos-tu-testimonio.png"
+				<img class="list-img" src="<?php echo $this->Server('static') ?>img/regalanos-tu-testimonio.png"
 					title="Regalanos tu testimonio del servicio en nuetras redes"
 					alt="Regalanos tu testimonio del servicio en nuetras redes" />
 				<p>Regálanos un testimonio del buen servicios que te brindamos en

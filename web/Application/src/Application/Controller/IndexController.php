@@ -11,7 +11,6 @@ namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-use Orders\Entity\OrdersCountry as EntityOrdersCountry;
 use Zend\View\Model\JsonModel;
 
 class IndexController extends AbstractActionController
@@ -20,50 +19,54 @@ class IndexController extends AbstractActionController
     {        
         $this->getServiceLocator()
                 ->get('ZendViewRendererPhpRenderer')
-                ->headTitle('Mnemonic250 Neural Coffee, By hackers For hackers');
-        
-        $serviceOrderCountry = $this->getServiceLocator()
-                ->get('Orders\Model\Service\OrdersCountryService');
-        
-        return new ViewModel(
-                array(
-                    'country' => 'PE',
-                    'countries' => $serviceOrderCountry->getAll()
-                )
-            );
+                ->headTitle('Budocu');
+        $isDocumento = FALSE;
+        if($this->getRequest()->isPost()) {
+            $search = $this->params()->fromPost('search');
+            $isDocumento = $this->getBdcDocumentoService()->buscarDocumento($search);
+            if(!$isDocumento['status']) {
+                return $this->redirect()->toUrl('/documento-no-reportado');
+            }
+            else{
+               return  $this->redirect()
+                ->toUrl('/documento-reportado/' . $isDocumento['data']['doc_codigo']);
+            }
+        }
+        return new ViewModel();
     }
     
     public function reportarDocumentoAction()
     {
         $this->getServiceLocator()
         ->get('ZendViewRendererPhpRenderer')
-        ->headTitle('Reportar Docuemento');
-    
-        $serviceOrderCountry = $this->getServiceLocator()
-        ->get('Orders\Model\Service\OrdersCountryService');
-    
+        ->headTitle('Reportar Documento');
+        $tiposDocuemento = $this->getBdcTipoDocumentoService()->getAll();
         return new ViewModel(
             array(
-                'country' => 'PE',
-                'countries' => $serviceOrderCountry->getAll()
-            )
+                'tiposDocuemntos' => $tiposDocuemento,
+                )
             );
     }   
+    public function guardarDocumentoAction()
+    {
+        
+        return new JsonModel();
+    }
     
     public function documentoReportadoAction()
     {
         $this->getServiceLocator()
         ->get('ZendViewRendererPhpRenderer')
-        ->headTitle('Reportar Docuemento');
-    
-        $serviceOrderCountry = $this->getServiceLocator()
-        ->get('Orders\Model\Service\OrdersCountryService');
-    
+        ->headTitle('Documento Reportado');
+        $documento = $this->params()->fromRoute('documento', NULL);
+        $dataDocumento = $this->getBdcDocumentoService()->getDocumentoByDocCodigo($documento);
+        if(empty($dataDocumento)) {
+            return $this->redirect()->toUrl('/');
+        }
         return new ViewModel(
             array(
-                'country' => 'PE',
-                'countries' => $serviceOrderCountry->getAll()
-            )
+                'data' => $dataDocumento['data'],
+                )
             );
     }
     
@@ -73,24 +76,26 @@ class IndexController extends AbstractActionController
         ->get('ZendViewRendererPhpRenderer')
         ->headTitle('Reportar Docuemento');
     
-        $serviceOrderCountry = $this->getServiceLocator()
-        ->get('Orders\Model\Service\OrdersCountryService');
-    
         return new ViewModel(
-            array(
-                'country' => 'PE',
-                'countries' => $serviceOrderCountry->getAll()
-            )
             );
     }
     
-    public function enviarAction()
-    {      
-        $params = $this->params()->fromPost();
-        $serviceOrderOPeraciones = $this->getServiceLocator()
-                ->get('Orders\Model\Service\OrdersOperacionesService');
-        $response['status'] = $serviceOrderOPeraciones->setOrder($params);
-        return new JsonModel($response);
+    /**
+     * 
+     * @return \Orders\Model\Service\BdcDocumentoService
+     */
+    public function getBdcDocumentoService()
+    {
+        return $this->getServiceLocator()->get('Orders\Model\Service\BdcDocumentoService');
+    }
+    
+    /**
+     * 
+     * @return \Orders\Model\Service\BdcTipoDocumentoService
+     */
+    public function getBdcTipoDocumentoService()
+    {
+        return $this->getServiceLocator()->get('Orders\Model\Service\BdcTipoDocumentoService');
     }
     
 }
