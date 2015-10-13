@@ -3,6 +3,8 @@ namespace Orders\Model\Repository;
 
 use Util\Model\Repository\Base\AbstractRepository;
 use Zend\Db\Sql\Where;
+use Zend\Db\Sql\Ddl\Constraint\UniqueKey;
+use Zend\Stdlib\DateTime;
 
 class BdcDocumentoRepository extends AbstractRepository 
 {
@@ -46,6 +48,7 @@ class BdcDocumentoRepository extends AbstractRepository
         $select->where($where);
         return $this->fetchRow($select);
     }
-
+    
+    
 }
 

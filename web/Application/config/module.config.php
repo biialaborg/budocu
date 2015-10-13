@@ -35,7 +35,7 @@ return array(
                 'options' => array(
                     'route'    => '/documento-reportado[/:documento]',
                     'constraints' => array(
-                        'documento' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                        'documento' => '[a-zA-Z0-9_-]*',
                     ),
                     'defaults' => array(
                         'controller' => 'Application\Controller\Index',
@@ -44,9 +44,12 @@ return array(
                 ),
             ),
             'documento-no-reportado' => array(
-                'type'    => 'Literal',
+                'type'    => 'Segment',
                 'options' => array(
-                    'route'    => '/documento-no-reportado',
+                    'route'    => '/documento-no-reportado[/:documento]',
+                    'constraints' => array(
+                        'documento' => '[a-zA-Z0-9_-]*',
+                    ),
                     'defaults' => array(
                         'controller' => 'Application\Controller\Index',
                         'action'        => 'documento-no-reportado',

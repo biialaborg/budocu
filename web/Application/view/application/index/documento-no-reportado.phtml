@@ -9,12 +9,31 @@
 		<div class="one-col small-ct">
 			<p>Si deseas que te notifiquemos si un ciudadano honesto reportó tu
 				documento, ingresa tu mail y número de celular para contactarte.</p>
-			<form class="form-registro">
-				<input type="text" placeholder="Nombre" /> <input type="text"
-					placeholder="Correo electrónico" /> <input type="text"
-					placeholder="Celular" /> <input class="big-btn blue-btn"
-					type="button" value="Notificarme" />
+			<form class="form-registro" id="formregidtro">
+				<input type="text" placeholder="Nombre" name="nombre" /> 
+				<input type="text" placeholder="Correo electrónico" name="email" /> 
+				<input type="text" placeholder="Celular" name="movil" /> 
+				<input type="hidden" name="tipo" />
+				<input type="hidden" name="numdoc" value="<?php echo $this->numdoc ?>" /> 
+				<input class="big-btn blue-btn" type="button" value="Notificarme" onclick="guardarDocumento()" />
 			</form>
 		</div>
 	</div>
 </section>
+
+<script>
+function guardarDocumento() 
+{
+    $.ajax({
+    	  url: "/application/index/guardar-documento",
+    	  data : $('#formregidtro').serialize(),
+    	  type : 'POST',
+    	  beforeSend: function( xhr ) {
+    	    xhr.overrideMimeType( "text/plain; charset=x-user-defined" );
+    	  }
+    	}).done(function( data ) 
+    	{
+            
+      });
+}
+</script>

@@ -12,6 +12,7 @@ namespace Application\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Zend\View\Model\JsonModel;
+use Orders\Entity\BdcDocumento;
 
 class IndexController extends AbstractActionController
 {
@@ -25,7 +26,7 @@ class IndexController extends AbstractActionController
             $search = $this->params()->fromPost('search');
             $isDocumento = $this->getBdcDocumentoService()->buscarDocumento($search);
             if(!$isDocumento['status']) {
-                return $this->redirect()->toUrl('/documento-no-reportado');
+                return $this->redirect()->toUrl('/documento-no-reportado/' . $search);
             }
             else{
                return  $this->redirect()
@@ -49,8 +50,22 @@ class IndexController extends AbstractActionController
     }   
     public function guardarDocumentoAction()
     {
+        $params = $this->params()->fromPost();
+        $reportado = BdcDocumento::DOCUMENTO_REPORTADO_ENCONTRADO;
+        if(isset($params['tipo'])){
+            $reportado = BdcDocumento::DOCUMENTO_REPORTADO_PERDIDO;
+            $params['tipdoc'] = NULL;
+        }
         
-        return new JsonModel();
+        $response = $this->getBdcDocumentoService()
+                        ->guardarDocumento(
+                            $params['tipdoc'],
+                            $params['numdoc'],
+                            $params['email'],
+                            $params['movil'],
+                            $reportado
+                            );
+        return new JsonModel($response);
     }
     
     public function documentoReportadoAction()
@@ -73,10 +88,15 @@ class IndexController extends AbstractActionController
     public function documentoNoReportadoAction()
     {
         $this->getServiceLocator()
-        ->get('ZendViewRendererPhpRenderer')
-        ->headTitle('Reportar Docuemento');
+            ->get('ZendViewRendererPhpRenderer')
+            ->headTitle('Reportar Docuemento');
     
+        $documento = $this->params()->fromRoute('documento', NULL);
+        
         return new ViewModel(
+                array(
+                    'numdoc' => $documento
+                )
             );
     }
     

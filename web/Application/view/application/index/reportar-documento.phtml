@@ -5,16 +5,21 @@
 			<div class="two-col">
 				<h2>Regálanos tus datos</h2>
 				<form class="form-datos form-registro" id="formregidtro" method="post">
-					<select>
+					<select name="tipdoc">
 						<optgroup>
 							<option>Tipo de documento</option>
 							<?php foreach ($this->tiposDocuemntos as $documento): ?>
 								<option value="<?php echo $documento['tipd_id'] ?>"><?php echo $documento['tipd_nombre'] ?></option>
 							<?php endforeach;?>
 						</optgroup>
-					</select> <input type="text" placeholder="Número de documento" /> <input
-						type="text" placeholder="Email" /> <input type="text"
-						placeholder="Móvil" /> <label> <input type="checkbox">
+					</select> 
+					
+					<input name="numdoc" type="text" placeholder="Número de documento" /> 
+					<input name="email" type="text" placeholder="Email" /> 
+					<input name="movil" type="text" placeholder="Móvil" /> 
+						
+						<label> 
+						<input type="checkbox">
 						<p>
 							Acepto los <a href="#terminos-condiciones"
 								class="inline cboxElement">términos y condiciones</a>
@@ -92,9 +97,7 @@ function guardarDocumento()
     	  }
     	}).done(function( data ) 
     	{
-            if ( console && console.log ) {
-              console.log( "Sample of data:", data.slice( 0, 100 ) );
-            }
+            
       });
 }
 </script>

@@ -3,7 +3,7 @@
 namespace Orders\Model\Service;
 use Util\Model\Service\Base\AbstractService;
 
-class OrdersCountryService extends AbstractService 
+class AuthUsersService extends AbstractService 
 {
     public function getAll()
     {
